@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<workbook source-platform='win' version='8.3' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <!-- build 8200.14.0819.2015                                -->
+  <preferences>
+  </preferences>
+  <datasources>
+    <datasource caption='COMPLAINDATA+ (DS_CENSUS_STATE)' inline='true' name='oracle.41952.727722025462' version='8.3'>
+      <connection authentication='RDBMS' class='oracle' port='1521' schema='DS_FINANCIAL_COMPLAINTS' server='128.83.138.158' service='PDBORCL' username='DS_FINANCIAL_COMPLAINTS'>
+        <relation name='COMPANYUNTIMELY' table='[DS_FINANCIAL_COMPLAINTS].[COMPANYUNTIMELY]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>COMPANY</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[COMPANY]</local-name>
+            <parent-name>[COMPANYUNTIMELY]</parent-name>
+            <remote-alias>COMPANY</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>100</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=178,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COMPLAINTS</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[COMPLAINTS]</local-name>
+            <parent-name>[COMPANYUNTIMELY]</parent-name>
+            <remote-alias>COMPLAINTS</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UNTIMELY_COMPLAINTS</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[UNTIMELY_COMPLAINTS]</local-name>
+            <parent-name>[COMPANYUNTIMELY]</parent-name>
+            <remote-alias>UNTIMELY_COMPLAINTS</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DISPUTED_COMPLAINTS</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[DISPUTED_COMPLAINTS]</local-name>
+            <parent-name>[COMPANYUNTIMELY]</parent-name>
+            <remote-alias>DISPUTED_COMPLAINTS</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DISPUTED_UNTIMELY</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[DISPUTED_UNTIMELY]</local-name>
+            <parent-name>[COMPANYUNTIMELY]</parent-name>
+            <remote-alias>DISPUTED_UNTIMELY</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>RELIEFS</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[RELIEFS]</local-name>
+            <parent-name>[COMPANYUNTIMELY]</parent-name>
+            <remote-alias>RELIEFS</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>UNTIMELY_RELIEFS</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[UNTIMELY_RELIEFS]</local-name>
+            <parent-name>[COMPANYUNTIMELY]</parent-name>
+            <remote-alias>UNTIMELY_RELIEFS</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Company' datatype='string' name='[COMPANY]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Complaints' datatype='real' name='[COMPLAINTS]' role='measure' type='quantitative'>
+      </column>
+      <column caption='NumberOfComplaints' datatype='integer' name='[Calculation_4481110011753796]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([COMPLAINT_ID] )' scope-isolation='false' />
+      </column>
+      <column caption='Percentage of Untimely' datatype='real' name='[Calculation_5051120124211389]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[UNTIMELY_COMPLAINTS] / [COMPLAINTS] * 100' scope-isolation='false' />
+      </column>
+      <column caption='ComplaintsOverPopulation' datatype='real' name='[Calculation_7211111130744223]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[NOOFCOMPLAINTS] / [POPESTIMATE2013] * 100' scope-isolation='false' />
+      </column>
+      <column caption='Disputed Complaints' datatype='real' name='[DISPUTED_COMPLAINTS]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Disputed Untimely' datatype='real' name='[DISPUTED_UNTIMELY]' role='measure' type='quantitative'>
+      </column>
+      <column aggregation='Sum' caption='Noofcomplaints' datatype='real' name='[NOOFCOMPLAINTS]' role='dimension' type='quantitative'>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Relief for Untimely' datatype='real' name='[Percentage of Untimely (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[UNTIMELY_RELIEFS]/ [UNTIMELY_COMPLAINTS] * 100' scope-isolation='false' />
+      </column>
+      <column caption='Reliefs' datatype='real' name='[RELIEFS]' role='measure' type='quantitative'>
+      </column>
+      <column caption='State' datatype='string' name='[STATE]' role='dimension' semantic-role='[State].[Name]' type='nominal'>
+      </column>
+      <column caption='Untimely Complaints' datatype='real' name='[UNTIMELY_COMPLAINTS]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Untimely Reliefs' datatype='real' name='[UNTIMELY_RELIEFS]' role='measure' type='quantitative'>
+      </column>
+      <column-instance column='[STATE]' derivation='None' name='[none:STATE:nk]' pivot='key' type='nominal' />
+      <column-instance column='[COMPLAINTS]' derivation='Sum' name='[sum:COMPLAINTS:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[UNTIMELY_COMPLAINTS]' derivation='Sum' name='[sum:UNTIMELY_COMPLAINTS:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[UNTIMELY_RELIEFS]' derivation='Sum' name='[sum:UNTIMELY_RELIEFS:qk]' pivot='key' type='quantitative' />
+      <group name='[Top by percent]' name-style='unqualified' user:ui-builder='filter-group'>
+        <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+          <groupfilter function='member' level='[none:STATE:nk]' member='&quot;CA&quot;' />
+          <groupfilter function='member' level='[none:STATE:nk]' member='&quot;DE&quot;' />
+          <groupfilter function='member' level='[none:STATE:nk]' member='&quot;FL&quot;' />
+          <groupfilter function='member' level='[none:STATE:nk]' member='&quot;GA&quot;' />
+          <groupfilter function='member' level='[none:STATE:nk]' member='&quot;MD&quot;' />
+          <groupfilter function='member' level='[none:STATE:nk]' member='&quot;NH&quot;' />
+          <groupfilter function='member' level='[none:STATE:nk]' member='&quot;NJ&quot;' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:STATE:nk]' type='palette'>
+            <map to='#17becf'>
+              <bucket>&quot;VA&quot;</bucket>
+            </map>
+            <map to='#1f77b4'>
+              <bucket>&quot;CA&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;GA&quot;</bucket>
+            </map>
+            <map to='#7f7f7f'>
+              <bucket>&quot;NY&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;MI&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;MD&quot;</bucket>
+            </map>
+            <map to='#bcbd22'>
+              <bucket>&quot;NJ&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;IL&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;NH&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;FL&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;DE&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;TX&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;[oracle.41952.727722025462].[sum:COMPLAINTS:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[oracle.41952.727722025462].[sum:UNTIMELY_RELIEFS:qk]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[oracle.41952.727722025462].[sum:UNTIMELY_COMPLAINTS:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Percent Untimely'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='COMPLAINDATA+ (DS_CENSUS_STATE)' name='oracle.41952.727722025462' />
+          </datasources>
+          <datasource-dependencies datasource='oracle.41952.727722025462'>
+            <column caption='Company' datatype='string' name='[COMPANY]' role='dimension' type='nominal'>
+            </column>
+            <column caption='Relief for Untimely' datatype='real' name='[Percentage of Untimely (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[UNTIMELY_RELIEFS]/ [UNTIMELY_COMPLAINTS] * 100' scope-isolation='false' />
+            </column>
+            <column caption='Untimely Complaints' datatype='real' name='[UNTIMELY_COMPLAINTS]' role='measure' type='quantitative'>
+            </column>
+            <column caption='Untimely Reliefs' datatype='real' name='[UNTIMELY_RELIEFS]' role='measure' type='quantitative'>
+            </column>
+            <column-instance column='[COMPANY]' derivation='None' name='[none:COMPANY:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Percentage of Untimely (copy)]' derivation='Sum' name='[sum:Percentage of Untimely (copy):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[UNTIMELY_COMPLAINTS]' derivation='Sum' name='[sum:UNTIMELY_COMPLAINTS:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[UNTIMELY_RELIEFS]' derivation='Sum' name='[sum:UNTIMELY_RELIEFS:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='false' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[oracle.41952.727722025462].[sum:UNTIMELY_RELIEFS:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+          </style-rule>
+          <style-rule element='annotation'>
+            <format attr='border-style' id='annotation_0' value='none' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='5'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[oracle.41952.727722025462].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='6' y-axis-name='[oracle.41952.727722025462].[sum:UNTIMELY_COMPLAINTS:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[oracle.41952.727722025462].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='7' y-axis-name='[oracle.41952.727722025462].[sum:UNTIMELY_RELIEFS:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[oracle.41952.727722025462].[:Measure Names]' />
+              <text column='[oracle.41952.727722025462].[sum:Percentage of Untimely (copy):qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([oracle.41952.727722025462].[sum:UNTIMELY_COMPLAINTS:qk] + [oracle.41952.727722025462].[sum:UNTIMELY_RELIEFS:qk])</rows>
+        <cols>[oracle.41952.727722025462].[none:COMPANY:nk]</cols>
+        <annotations>
+          <annotation class='point' id='0' mark-position='1' pullback='0' text-width='180'>
+            <formatted-text>
+              <run>Sample size of 10</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='axis'>
+                <x-coord cell-offset='0.733333'>
+                  <node-reference>
+                    <fields>
+                      <field>[oracle.41952.727722025462].[none:COMPANY:nk]</field>
+                    </fields>
+                    <multibucket>
+                      <bucket>&quot;JPMorgan Chase&quot;</bucket>
+                    </multibucket>
+                  </node-reference>
+                </x-coord>
+                <y-coord axis-value='2.6989932885905885'>
+                  <node-reference>
+                    <axis>[oracle.41952.727722025462].[sum:UNTIMELY_COMPLAINTS:qk]</axis>
+                  </node-reference>
+                </y-coord>
+                <page-reference>
+                </page-reference>
+              </visual-coordinate>
+            </point>
+            <body x='37' y='-125' />
+          </annotation>
+        </annotations>
+      </table>
+    </worksheet>
+    <worksheet name='Wage vs Price'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='COMPLAINDATA+ (DS_CENSUS_STATE)' name='oracle.41952.727722025462' />
+          </datasources>
+          <datasource-dependencies datasource='oracle.41952.727722025462'>
+            <column caption='Company' datatype='string' name='[COMPANY]' role='dimension' type='nominal'>
+            </column>
+            <column caption='Complaints' datatype='real' name='[COMPLAINTS]' role='measure' type='quantitative'>
+            </column>
+            <column caption='Percentage of Untimely' datatype='real' name='[Calculation_5051120124211389]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[UNTIMELY_COMPLAINTS] / [COMPLAINTS] * 100' scope-isolation='false' />
+            </column>
+            <column caption='Untimely Complaints' datatype='real' name='[UNTIMELY_COMPLAINTS]' role='measure' type='quantitative'>
+            </column>
+            <column-instance column='[COMPANY]' derivation='None' name='[none:COMPANY:nk]' pivot='key' type='nominal' />
+            <column-instance column='[COMPLAINTS]' derivation='Sum' name='[sum:COMPLAINTS:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_5051120124211389]' derivation='Sum' name='[sum:Calculation_5051120124211389:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[UNTIMELY_COMPLAINTS]' derivation='Sum' name='[sum:UNTIMELY_COMPLAINTS:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='false' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[oracle.41952.727722025462].[sum:UNTIMELY_COMPLAINTS:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[oracle.41952.727722025462].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' y-axis-name='[oracle.41952.727722025462].[sum:COMPLAINTS:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[oracle.41952.727722025462].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='5' y-axis-name='[oracle.41952.727722025462].[sum:UNTIMELY_COMPLAINTS:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[oracle.41952.727722025462].[:Measure Names]' />
+              <text column='[oracle.41952.727722025462].[sum:Calculation_5051120124211389:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([oracle.41952.727722025462].[sum:COMPLAINTS:qk] + [oracle.41952.727722025462].[sum:UNTIMELY_COMPLAINTS:qk])</rows>
+        <cols>[oracle.41952.727722025462].[none:COMPANY:nk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Percent Untimely'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='6' param='[oracle.41952.727722025462].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[oracle.41952.727722025462].[none:COMPANY:nk]</field>
+          <field>[oracle.41952.727722025462].[none:Calculation_1491110172707866:ok]</field>
+          <field>[oracle.41952.727722025462].[none:Calculation_1491110172707866:qk]</field>
+          <field>[oracle.41952.727722025462].[none:Calculation_7211111130744223:qk]</field>
+          <field>[oracle.41952.727722025462].[none:STATE (COMPLAINDATA):nk]</field>
+          <field>[oracle.41952.727722025462].[none:STATE (STATEMORTAGES):nk]</field>
+          <field>[oracle.41952.727722025462].[none:STATE:nk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Wage vs Price'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='4' param='[oracle.41952.727722025462].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[oracle.41952.727722025462].[:Measure Names]</field>
+          <field>[oracle.41952.727722025462].[io:Top by percent:nk]</field>
+          <field>[oracle.41952.727722025462].[none:AVERAGE_ANNUAL_WAGE_IN_DOLLAR:qk]</field>
+          <field>[oracle.41952.727722025462].[none:CENSUS2010POP:qk]</field>
+          <field>[oracle.41952.727722025462].[none:COMPANY:nk]</field>
+          <field>[oracle.41952.727722025462].[none:PRICE:qk]</field>
+          <field>[oracle.41952.727722025462].[none:STATE:nk]</field>
+          <field>[oracle.41952.727722025462].[none:STATE_ID (POPULATION):nk]</field>
+          <field>[oracle.41952.727722025462].[none:STATE_NAME:nk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Percent Untimely' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7EAAAOxAGVKw4b
+      AAAW6ElEQVR4nO3dWXBc2X3f8e+9t/cN3UBjaSzEQgIkwQ0DgttwGc6mkTWWtbjkjF/yJle5
+      Sn5w2X5JKkq5yk9JORU9pCqVqlRsKUpKKlmxRs7YCuORPaMZ7gSHA3ABAWIhtgbQ3eh9u903
+      D+CMhhlgCEINNID7/1TxoRvNP84lz6/vOXc5VzEMw0AIE1IURVGr3QghqkkCIExNAiBMTQIg
+      TE0CsNkMg0QkzMTUDMWyHG/YbizVbsBul4lO8e6HI/S0+7lXUAkYS0SNGkIehdn5eRwuN0XV
+      i5FaRPHU01Gncnt4gv1HDzL/cIyyp54Gt0aN306y7KXJ76z2Ju0qEoBNlghP4+/s5eChEKmF
+      cX5xK0YT93mwlKe5r5d7Q49BT1BQ6wnaJnEdOUgyPMK14RLRsTRWxwSOznruDBU4eOZ8tTdn
+      15Eh0Carae4g9vAmVz58n+GpGEo2ylLKwGl14K/14ffXYLdCOhYmUVCYvnuTWEGjXCrhdHtw
+      Omy0dOxlMZGmyeeo9ubsOoqcCNtkhkE2kyJbKFPj91FIJyliwa6BarOhF0uU9CI/v3SLN18/
+      gdNikMkXsdrtUFZQlDJL4x8zWazl7LF9KNXenl1EURRFAiBMS1EU5ak5QCqVolgsVqs9Qmy5
+      p/YAld4ZLC8v4/f7K1pTmJdhGMTj8Yr1KVVVn94DKErlR5ibUVOYl6IoFe1TchRImJoEQJja
+      c5wIM1gYv8179zOcaLfz0eg0vua95B/fJ1rQOPtCO+/dfERj1yFeO9Urh+vEpivrWS799H/Q
+      /fJbjN/8J2LpAoe7W7n9YJxgay+W5RHm4kVeefObNHqtq9Z4jj1AGcNppRDN0N47wGtnBzBS
+      s+TsbbTXKgwNjjFw4RzxxTmKuk4ul0PX9QptqhArisXip30rn81h0xQKiptXv/wVukMexkbm
+      6T9/nuXFIeI5P4dba1iIp9es9xwB0KhvCAKQic1xa2SOk6dOYqGAAQRq3WQyeax2B4phYDz5
+      I0QlGZ/pW05vAK/TCpR4eOc6ltARelq85LI5bLYAFmuJolHGYV392x+ecw6gKF76+rpZCs+R
+      WI5wfzJBb7sLAj0MnD9HYnKMvmNHsFqtOJ1OrF/wi4XYCJvN9lTfaj3QT9CSYXYxxvSjB/i7
+      e4mNj9N3/Ax9+xtJaiH2BF1r1tvUM8GxWIxAILBZ5YXJVPo8gNwTLExPAiBMTQIgTE0CIExt
+      6+4IK2Rg9FJlajUchGBPZWoJU9u6AKQX4cf/sjK1Xv0unP+TytQSpiZDIGFqEgBhahIAYWoS
+      AGFqEgBhahIAYWoSAGFqEgBhahIAYWoSAGFqEgBhahIAYWoSAGFqEgBhahIAYWoSAGFqEgBh
+      ahIAYWoSAGFqzxUAw9CJxRKUCxkmxseJZ/JEF2Z4PLtIqZhjYnyc5XR+s9oqxOdkElFyOiwv
+      zTE1HaZYyK70zXSeeGSeyek59C94QPlz3BRf4t7Nf+TyQ5WLnRpjRY3Mg4cYyRwKacINARbK
+      bnKj83zj9TOyPLrYdJnlMD/94V8x8K3vMPL+dTSSPPLWU3A4SD14hDUdR1OLlM59la761dcH
+      fY49gEpP3xGcZUjEC3T17ENPh1HdDdT7HSyEE3T17KOUT5PJZonFYmSz2cpsqRBPZDIZYrEY
+      uVwOp6+e/R3NUMqDI0Bz0Et4PkVHTzel/CJl1U9bvY9Ubu1RyXMEQEFVVz4eavUzdPMjfE0H
+      sBXmmI/r9BxoY+jmbTyBetxOJ4FAAKfT+ZturxBPcblcBAIBHA4HiqqiKIDVg7McZWIhw4He
+      Fu7dGsRbuw+3Nc5YOEnQ516z3nOtC6Qo9Xz9G+dxOiy8FEri8vowCgfIl1V8bgd1rXGc3prf
+      dBuFWLejL38TxWaj89VXyerg8zhojydxenygHyBbAJ/Ptubff84AaLhcGgCB2ifLnlu9OJ78
+      PFBbu6GNEGKjbM4n3+4uD/Yn7/k/WZLf6sH+jEGIHAYVpiYBEKYmARCmJgEQpiYBEKYmARCm
+      JgEQpiYBEKYmARCmJgEQpiYBEKYmARCmJgEQpiYBEKYmARCmJgEQpiYBEKYmARCmJgEQpiYB
+      EKYmARCmJgEQpiYBEKYmARCmJgEQprahABilIovhBbIFneRyhMVInLJeIDw/TzpXrHQbhViV
+      US6ytLBAJq+TjkdZWIpRKhVZCM+TzBbWVeO5lkb8xOzwB3w4nsRbU0smPE+pnGNfWz0TCQXD
+      5uUbr52W5dHFplsYvcWv7i9gsXlQUjFKepq2jj1MR4vkDY3fe/PlZ/bDje0BFBt6sYjDWkTz
+      ttAcdDE7s8zBY4cpZVOyPLrYNJ9dHh0sFAsFXA4Dw1FPR8jH7EyUvQcPoebTlNZRb0N7gEQy
+      TVOokWQ2j7W4SCRfYn93Mw+G7+Px1+F2OnHL0uhiE7hcLvx+PwAzqTTBxhDJZAIXGWajOfbt
+      28uj0fvYfbXr6twbCsCBkxcIhCPUBBsoZ5dJ6xYaat345hbw1TVspKQQz63z2Gnc4SU8tfUo
+      +QSJvEJj0EftfBh3oH5dNTYUANViJ9TSvPLCHsTz5P1QS8tGygmxIapmo6n5ST901PHJYzCa
+      mtffD+UwqDA1CYAwtTWHQMsLC2SKGRRHHaE671a2SYgts0YAcly5fJ14dgmPr5M3vnJhY5MF
+      Iba5Nfq1hVqvQrDrOHpOlXGS2LVW6dsG0yO3uPrxFDPjY6QLRdZ+zrYQO9sqAVBo6e7nRG8L
+      uWxOOr/Y1VYdAimKztxCko6ebnyBOrmuR+wKpUyED27dIzIzS/8rvwWsMQTSiwqnz79Ird+P
+      x+X4/EeE2GEMwyATnWXk3hCKy8dSPA2ssQeYm5pkdOQuE/MxalsOEmoOykRY7Gh6JsY/XblN
+      Q2s3QZ+d5mANsMYcoG1vO4VMjmw6gaEo0vnFjmdx1vDCsWN4HBoOby1Oq7by/uofVwm29aDZ
+      yqR0XSbCYsdTVI06r4WR4dt0HOij5AgAq+4Bygxdfo8Ho/cJx8vYXXJZs9gdrJ46Ai4rU7NL
+      1AdWLuFcdQh08OR5uhrc6CUdu9MpQyCx4+nZJA8ejlOyOFCLCTI5HVgjAJpWZiFSoP+FI8yO
+      DDEVjm1xc4WoMEVh5vEUFocXn9eDRV3p+mt8uVs5fe4Ubk+AM2f6cdqsW9hSISpPs7u4cPEl
+      rKUMgYZWnM6V6e8aAShz//Z13r10iTuji9QGPKt/TIgdQlFU9OQC8XSGQjHP/GIcWPMokEIu
+      n6eusYm6gFfOBItdwR3az6n+JOGMSkeoFlgzADq64qW/vw+HyyuTYLHjlXIJ3v7Z26RyZbx+
+      H6m1J8EAFjpb/Vy5coXJuaicBxA7XjGfJdh1mAuHG+g4/gadDSvD+jX2AGWmZxdpaQ4Sng1j
+      HOnawqYKUXmazUl2fpSb+RLG1CW8lovAF5wJ9nodLEYTuOrrZQ4gdjyr08frv/27ACjKr3v0
+      qgFIRcI07D9Jc2IaPdAmcwCxKxQSC7x/dRBnIETf0UPAGpdCDA8O4Q/W0rpvL2N3Pkbf4oYK
+      sRlUqx2P00ExE+Pd//0zYNU9gEJndyfXLv2cvGFl38E+2QOIHU/PpfjF2z9hJqXhddnpO/sl
+      YI0ANLR383pLF4aioGna5+YAy9P3+OX1hzR27SU6coflvMqLfe28/9Ek9R0H+a2zR2XeIDZd
+      MjzGu1eG8TfvITf9kKVUnpMDvVy7PYq7oZ2vvXrq036o2d186c3f4edv/x01zZ14PCs3eq3x
+      5a4zdOMaHw8/IJbIYPx/x0EfPhhDs1twKllK7k66Gm3cH57i1MULZGKLFAoF0uk0hcL61mgX
+      Yr3y+TzpdJpiscjk2CNKiopT08lZm+ht93Hv7hRHT5+nmFik/Jm/pygKxeQC8WSKZDrJQiQJ
+      rBkAjYDfyfjIXT547xLXPp586qcuVaGt5wBj41No5CkbUFfvJZnMYHM40VQVi8WCqsrgSVSW
+      pmmf9i2HptG6/xATY6Noqo6ulwgGa8hkM1jtn7+K2dXYTW9XK5FIjKY6H7DqEMhgeWmWmUiB
+      vuMDON0eAjX+pz7Re+5lrl69xYvn36C0NMpcNsTx3haufHiDgf4BLBbLp3+EqCSLxYLdbgdg
+      7/EzLF+/yemLb2JNTjEea+TUsU5uXLlO/8CJzw3Ds4uPGIkYtDX60Usr+4dVe2h8KUI2vcTN
+      wVlaOw7T2BB86ueK1cXpc+dWXtQeo+3J+2dfeqliGyrEsygWJwNnnvTD+kOEnrx/6tyF1T+v
+      auiFPLruoFxeGdevej9A+4GD6NkIGi4ic/NyKYTYHQwDRVVQVRVFXdk/rDkH8Pt8zM1M4AgE
+      5IiO2PFKxTyJkoOjB7qorX3mTfEGSlmhkE8SW05QRtZRFzubAmSWF4imi7jIshjPAF8QgGRO
+      4dTZc/hqQ9L5xY6nKBCenWZuoYDb4aD10BeeByhT0BVCzc0Ea2tkCCR2PMVi59jRw1gtVlxO
+      2xdNgg2y6QxKMcH/+Ye/5/Kt++t63KQQ255RJlcoYHzmzO7qh0GjUVRnDZ2ddegy/hG7QKmY
+      Y3QmRk9nGzaXn1DtyiP1Vu3eejbCw/EZksk0Lq/cEil2PkW1EGrtYO/eLuzZee5OLQJrnAdo
+      7XmBI3sbV2YOhiHnAcTOZ5RJLEeJRKIsp7JYtJWuv8ZRoBLz8xE8oVYcdtsWtlKIzaJgsVqx
+      qwqdR04Saly5umHVa4HikTj95y9QMhTqm1pkCCR2PNViZU9n9+ffX+3D2XSSZCpNMjbPh1c/
+      fuqyUiF2k1WHQDW1Ddg8tRSyMRZiczIHELvWqgFYmp1kciGOZrFz/FS/PCNY7Fqr3hLZ1nOE
+      tp6tb4wQW03mt8LUJADC1CQAwtQkAMLUJADC1CQAwtQkAMLUJADC1CQAwtQkAMLUNnyZTyG9
+      TLJkR4/PEC866GoNMDIyTsOeLoI+VyXbKMSa9GyCWE6DzAKRrMrePQ2MjT4iEGqncR2P991Q
+      AAyjxK/e+Qnl9gGSj+ewK3Gi417SrkbuXR7km2+clZUkxKYzjDLX3/0Zi+6DEFvAqcaJTNeT
+      tfm5M3aZb3319Wf2ww0NgR7f+YCoWkMmuoTiDOD32olFMrTsacEo5shks8RiMbLZ7EbKC7Gm
+      TCZDLBYjl8sx/+AG4aKDXCxC2eYjGHATjaZpDLWg6Pl1rWayoQD42/bTVe+mbK3BlnvMVKTI
+      wcPt3PzgMp7aBtxOJ4FAAKfTuZHyQqzJ5XIRCARwOBz4mjrpbglQtnhwlhYYmU7Re6iDuzev
+      4PA3rGt4s6EhkK+2kRfOvcExQ8EoH6NkKNisGqGuo1hscg+x2Bpufz29A6+wvwyKUUIvg82q
+      0dpxAM1iXVeNDU+CFVVDA9BsnxaxOxwbLSfEhiiKikUDUFf6I3z6/ID1kMOgwtQkAMLUJADC
+      1CQAm8wol5ibesTY1BzldSyvEY1G1vxZJBp99u8zykxPjpMplMAwWI4uoZfKzE6OMh2Ofu6J
+      n2YnCz5ssvj0bf7bf7/G3lYb2le+xfTtX2Fp7KbeSDMejlLjtRNo72F25B6h7iP83U/+C7/3
+      5S8zHDZ47Xw/qlHgg0uXqOkeYObRbbxqibkYXHj5BIMfXqfvpddp8FhJLk7wq9tTHNtn5c/+
+      7H/yve//JfGJm/zFf/hr/vWf/ynf/6u/JVbO8xff/VdYNTlN+QkJwCbz1O/jwJ5bTMynKOYz
+      JBLL/PgX/5XuUpnDxxq5bzQRuz9Na1M713/4Nroe4d//5X8kV9RxNv9nzgdn+eFP/y/9L9uZ
+      nx/mD77+BkPvPeCff/Q9/nE4yuVxnX/7nd/h+9//EUcOt/HLe1aOHT5D0GWl1LGfA6EgpXQE
+      f/uL6PN/T9kwQM7Tf0qGQJsstfSYhBKgLaBz+/Z1fjk4jteqYPN4aW1rpqm5BYCF2ccoLjeq
+      qtHadYBXvvQmnUEnhuqmr6+DkeGHFAtZ/ubHPyVY58HqDXHizAXOHT8IQI1D49HUIr6AH5fD
+      jgpYbXZURcFS00oxfBm0IJoqnf+zFMPYvFFhLBYjEAg8eTEJ3ztamcKvfhfO/0llam0yo1xk
+      ZmqKvOKkvaWO6cezOD1eNMDjslHAQrYQ450bMb52eh8UU1gMnaWMQUdrCFUpMzM+hqWmCbWc
+      JROPki0qtLS1sjg3R+OeTtw2jUImzuP5OG17GknFC9TWeYEysaUI3togkdkJSvZaQsEalB2a
+      AcMwiMfj+P3+Z394HRRFUaoXAMPgUaSM1aHS6laIZ8vY7AouTSGVLfM4A/v8Co+iZRpqVAK2
+      z/yv7aAAiMrZjABUbQik5wxuRQx+8FGBeN7g3/0yz70UYBi8fU9nPFJiOFzm3lKJH97Vq9VM
+      sctVLQAWp8qXWlX2BzWujhZxeFWSRQOKBoOLZW7NlbB4VdodCnkDUz+nLJvNMjs7W+1m7EpV
+      C0AuU+LP3yugWBUa/SpKwWApazCbhV7/ypDnUbjERB6UMqZeon1oaIiZmZlqN2NXqtphUItN
+      5Y/O2FA1aPWo7G/QUDUoluCtPiuRokHIpRBOGbzmVFjftX2709DQEG+99Va1m7ErVS8AFoUO
+      /68nts4nV1Hbn1zS12pf+Vmzb4cesqgQXdcpFApyb8Um2bIALFg0vtPcVJFav+9x842KVNr+
+      bty4wcDAQLWbsWttWQCKisK9Cj1wb0nTnv2hXeL27dt8+9vfrnYzdi05E7yNpVIpXC4Xqir/
+      TZtF/mW3sbt379Lb24uyU0/d7gASgG3KMAxGRkbo6ZFnVW0mCcA2lc/nKRQK+Hy+ajdlV5MA
+      bFPy7b81JADb1NWrVzl58mS1m7HryQ0x21ChUEBRFGybtcbSg3+A//UHlan1rb+GvS9XplYV
+      SAC2ocHBQfr6+jbvF5SLkItXqNbOvlJXhkDbjGEYjI6O0t3dXe2mmMKG9gCRxw+5cXeMlu4j
+      ZKeHWco7OH20jfeuDrPnQB8v9LRWup2mkclkKBaL1NTUVLsp297y/DjXPrpPfUcvSmSMmYTB
+      6f4erly7Q31HLycPdz6zxob2APaaBs6d6mPi/nVmEm685UWuf3CTrqN9jD0cMfWly7+pyclJ
+      Ojo6qt2MHcHmruPcuTNM3b/GZESj0Z7g2pVBmg8cY+Lh3c1bHdpht3D37kNOnTmNRVXQNA2L
+      xYKiKGiahZwsj75h169f58SJE9Vuxrb12eXR7XYr9+/c4eT5l9BUFU3VsFisKIqy0h/XUW9D
+      AZgcvs6jcJypcI5mX5qYUcvA2eOMDd6ic98+XLI8+oYYhkEmk8Htdle7KdvWZ5dHnxkZZGQ2
+      xtRMgj3BEjMZNydP9zFzd5C2vfvX1bk3NAfY23+Rvf2fvOr49P2vfb1tI+XEE3fu3OHo0Qqt
+      nGECew6/yJ7Dn7zaxyf/cm9+9bfXXWN3HQaduQmX/1Nlap37Y2g6Upla63Tr1i2582uL7a4A
+      xGdg6G8qU+vY729pAPL5PIZh4JBnLGwpOQ+wTYyMjNDd3S2XPm8xCcA2MTw8zKFDh6rdDNOR
+      AGwDpVKJ5eXlX6+iJ7aMBGAbMAyDzs5OGf5UgQRgG0in01y8eLHazTAlCcA28M477zzXkw1F
+      5eyuw6A7VCwW+/WLQgruvl2ZwqFj0CgT6y8iAaiy8fHxpy9+y0Tgb/+wMsVf+TcSgGeQIVCV
+      DQ0Ncfjw4Wd/UGwKCUAV6bpOOBympaWl2k0xLQlAFUUiEQKBAJqJlnrcbiQAVXTt2jW59r/K
+      JABV9PjxY9ra5BLyapKjQFUyPz9PY2Pj7j37O/gD+OhHlan1L34Azs25TEQCUCVXrlzh9OnT
+      1W7G5olNwsT7lalVKlamzipkCFQFpVKJSCRCQ0NDtZtiev8P2yUjxdiMalMAAAAASUVORK5C
+      YII=
+    </thumbnail>
+    <thumbnail height='192' name='Wage vs Price' width='192'>
+      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
+      AAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
