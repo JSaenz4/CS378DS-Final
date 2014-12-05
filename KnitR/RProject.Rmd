@@ -18,14 +18,64 @@ Most important to the CFPB are whether or not the company's responses to the com
 
 
 ##Findings
+
+
 Throughout investigation of the data it became clear very early on how much mortgage complaints dominate the database. Mortgage complaints make up 41% of the total complaints, the rest is split between debt collection, credit reporting, bank account or service, credit card, consumer loan, student loan, money transfers, and payday loan. This is likely due to how many people need a mortgage because it's related to a necessary financial investment, a home.
 
 ![](./images/explanation.jpg)
 
 Another overarching trend is the tendency for companies to close complaints without relief (Monetary or non-monetary relief) and offer only an explanation to the customer to solve the problem and tell why no relief was given. The graph above shows that the percent of complaints that are closed only with explanation is increasing over time, meaning the mistakes are less and less often the company's fault and more often customer misunderstanding. Only roughly 10% of all mortgage complaints receive relief. 
 
+![](./images/amar/00.jpg)
+
+The above graph shows the 6 companies that received the most amount of mortgage-related complaints and the percentage of complaints those companies provided relief to. The average across all companies was about 10%. Chase, Citibank, and Wells Fargo offered relief at around that same rate. Bank of America, however, offered relief to 18% of mortgage-related complaints, which was almost double the average. Nationstar and Ocwen, both of which are mortgage service companies and not full-service banks, offered the least relief at about 2-3%.
+
+![](./images/amar/01.jpg)
+
+The above graph shows the percentage of relief received for various mortgage-related complaints broken down by issue. There are 6 types of issues:
+
+*Application, originator, and mortgage broker
+
+*Credit decision/Underwriting
+
+*Loan modification, collection, foreclosure
+
+*Loan servicing, payments, escrow account
+
+*Settlement process and costs
+
+*Other
+
+All of these issues received relief at roughly 10%, which was average.
 
 ##Analysis
+
+###Mortgage Issues Overview
+![](./images/amar/02.jpg)
+This shows the relief percentage by issue for each of the 6 main mortgage companies. Bank of America was pretty much uniformly at or above 15% relief for all 6 issues. Chase, Citi, and Wells Fargo usually offered 10% relief or greater except in the case of “Loan modification, collection, and foreclosure” complaints. This also turned out to be one of the most frequent complaints, so as a result, it dragged down the overall relief percentage for those 3 banks. 
+
+Exploring why Bank of America offered similarly high relief for all their issues and why the other 3 banks offered such low relief for “Loan modification…” in particular would be an interesting subject for further research. 
+
+Ocwen and Nationstar offered extremely low relief across all issues.
+
+###Percent Relief vs. Home Price to Income Ratio
+We were interested in studying the relationship between income, home prices, and the percentage of relief received by customers of the 6 major mortgage companies and banks.
+
+The Consumer Complaints Database contained the zip code and state for each complaint. We decided to use the home price to income ratio to measure the mortgage debt a consumer took on relative to his or her income. So, we measured the home price to income ratio using three geographic metrics: state, zip code, and metropolitan area that we were able to join back to the Consumer Complaint Database. 
+
+We measured the relationship across all incomes, and then across specific income tiers.
+
+![](./images/amar/03.jpg)
+
+![](./images/amar/04.jpg)
+
+![](./images/amar/05.jpg)
+
+![](./images/amar/06.jpg)
+
+![](./images/amar/07.jpg)
+
+![](./images/amar/08.jpg)
 
 ###Geographical Overview
 ![](./images/heatmap.png)
@@ -67,9 +117,7 @@ Here, we run the processed data through a Classification based on Timely, a Clas
 
 ![](./images/1.png)
 
-The classification node reveals that the best predictor for a complaint that does NOT have a disputed response is the company response being 'Closed with monetary relief'. This means that if a company doesn't want to have their responses disputed, they can assume that closing the complaint with monetary (usually around $100) relief is a good way to prevent disputes. Companies benefit from having fewer disputed responses (The CFPB watches over the companies and does not like to see disputed responses) but due to the increase in 'Closed with explanation' cases rather than 'Closed with monetary relief', we can conclude that the companies are not using money to prevent disputes from occuring against them. In short, more monetary relief means less disputes. 
-
-![](./images/amar/00.jpg)
+The classification node reveals that the best predictor for a complaint that does NOT have a disputed response is the company response being 'Closed with monetary relief'. This means that if a company doesn't want to have their responses disputed, they can assume that closing the complaint with monetary (usually around $100) relief is a good way to prevent disputes. Companies benefit from having fewer disputed responses (The CFPB watches over the companies and does not like to see disputed responses) but due to the increase in 'Closed with explanation' cases rather than 'Closed with monetary relief', we can conclude that the companies are not using money to prevent disputes from occurring against them. In short, more monetary relief means less disputes. 
 
 ![](./images/3.png)
 
@@ -83,5 +131,25 @@ After exporting the ComplainData table with an extra column for the probability 
 
 ![](./images/6.png)
 
-Upon further investigation, you can see that while most companies provide more relief and get less disputes, Nationstar and Ocwen are providing less relief and getting disputed very often. In such circumstances, Nationstar and Ocwen should be advised to provide relief more often less they risk being punished by the CFPB for not providing customers adequate support. It is the fact that Nationstar and Ocwen operate in a backwards manner in regards to the Dispute/Relief relationship as compared to other companies that they are the most anomalous points. 
+Upon further investigation, you can see that while most companies provide more relief and get less disputes, Nationstar and Ocwen are providing less relief and getting disputed very often. In such circumstances, Nationstar and Ocwen should be advised to provide relief more often lest they risk being punished by the CFPB for not providing customers adequate support. It is the fact that Nationstar and Ocwen operate in a backwards manner in regards to the Dispute/Relief relationship as compared to other companies that they are the most anomalous points. 
 
+###Untimely
+
+![](./images/Untimelyworkflow.png)
+
+We used different data mining algorithm on data to see if untimeliness had anything to do with relief. These algorithms included anomaly detection, a classification algorithm, and cluster build. The first two didn’t yield many results but the cluster showed the following.
+
+![](./images/CLUS_KM_1_280.png)
+
+
+![](./images/zoom_in_km.png)
+
+The initial cluster is hard to inspect but if we look at the zoomed in cluster we see that Bank of America has the only large number of complaints that are untimely and were closed with relief. However since Bank of America has the large number of complaints in the file this was not completely concrete and should be normalized. 
+
+
+![](./images/wage_vs_price.jpg)
+
+This Here we can see that the Bank of America has the largest percentage of untimely complaints.
+
+
+![](./images/zoom_in_km.png)
