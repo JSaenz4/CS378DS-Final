@@ -69,7 +69,7 @@ Here, we run the processed data through a Classification based on Timely, a Clas
 
 The classification node reveals that the best predictor for a complaint that does NOT have a disputed response is the company response being 'Closed with monetary relief'. This means that if a company doesn't want to have their responses disputed, they can assume that closing the complaint with monetary (usually around $100) relief is a good way to prevent disputes. Companies benefit from having fewer disputed responses (The CFPB watches over the companies and does not like to see disputed responses) but due to the increase in 'Closed with explanation' cases rather than 'Closed with monetary relief', we can conclude that the companies are not using money to prevent disputes from occuring against them. In short, more monetary relief means less disputes. 
 
-![](./images/2.png)
+![](./images/amar/00.jpg)
 
 ![](./images/3.png)
 
