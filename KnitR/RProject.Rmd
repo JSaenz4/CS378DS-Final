@@ -162,7 +162,7 @@ Upon further investigation, you can see that while most companies provide more r
 
 ![](./images/Untimelyworkflow.png)
 
-We used different data mining algorithm on data to see if untimeliness had anything to do with relief. These algorithms included anomaly detection, a classification algorithm, and cluster build. The first two didn’t yield many results but the cluster showed the following.
+We used different data mining algorithms on the data to see if untimeliness had anything to do with relief. These algorithms included anomaly detection, a classification algorithm, and cluster build. The first two didn’t yield many results but the cluster showed the following.
 
 ![](./images/CLUS_KM_1_280.png)
 
@@ -174,7 +174,7 @@ The initial cluster is hard to inspect but if we look at the zoomed in cluster w
 
 ![](./images/wage_vs_price.jpg)
 
-This graph compares the number of complaints and untimely complaints though Citi Bank is fairly close. Here we can see that the Bank of America has the largest percentage of untimely complaints and largest number of complaints.
+This graph compares the number of complaints and untimely complaints. Here we can see that the Bank of America has the largest percentage (although Citibank comes close) of untimely complaints and largest number of complaints.
 
 
 ![](./images/percent_untimely.jpg)
