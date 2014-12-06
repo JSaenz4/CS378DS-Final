@@ -59,23 +59,42 @@ Exploring why Bank of America offered similarly high relief for all their issues
 Ocwen and Nationstar offered extremely low relief across all issues.
 
 ###Percent Relief vs. Home Price to Income Ratio
-We were interested in studying the relationship between income, home prices, and the percentage of relief received by customers of the 6 major mortgage companies and banks.
+We were interested in studying the relationship between consumer debt and the relief received by customers of the 6 major mortgage companies and banks.
 
 The Consumer Complaints Database contained the zip code and state for each complaint. We decided to use the home price to income ratio to measure the mortgage debt a consumer took on relative to his or her income. So, we measured the home price to income ratio using three geographic metrics: state, zip code, and metropolitan area that we were able to join back to the Consumer Complaint Database. 
 
-We measured the relationship across all incomes, and then across specific income tiers.
+We measured the relationship across both all aggregated incomes and then across specific income tiers.
 
 ![](./images/amar/03.jpg)
 
+When looking at the Bank of America data, there is virtually no relationship between aggregated incomes (left side) and percentage of relief. However, when examining specific income tiers, a few interesting things come up. When looking at the “BofA Relief by Zip - Income Tiers” graph, note that there is a direct correlation between consumer debt (or home price to income ratio) and percent relief for the lowest income zip codes ($0-30k annually). Also, when looking at the “BofA Relief by Metro - Income Tiers” graph, note that there is an inverse relationship between consumer debt and percent relief for high income metros ($70k+ annually).
+
 ![](./images/amar/04.jpg)
 
+Generally speaking, Chase was less likely to provide relief to customers in areas of high debt (or high home price-to-income ratios) across all income tiers regardless of whether the data was grouped by state, zip code, or metro.
+
 ![](./images/amar/05.jpg)
+
+Citi was very interesting to observe because they were the only bank that had a (slightly) direct correlation between consumer debt and relief. In a sense, they “encouraged” consumers to take on more debt, since they provided them with relief more often. This conclusion held especially true for high-income metros and states.
 
 ![](./images/amar/06.jpg)
 
 ![](./images/amar/07.jpg)
 
+Nationstar and Ocwen are both similar mortgage service companies that offer extremely low relief. When looking at zip code, state, or metro data, the debt to relief relationship was inverse across virtually all income tiers.
+
 ![](./images/amar/08.jpg)
+
+Wells Fargo was similar to Bank of America in that there wasn’t much discrimination towards customers who took on high or low debt. The home price to income ratio was level as the percent relief changed for the aggregated incomes (left side graphs). Also, similar to Bank of America, it offered more relief to low-income customers that took on more debt, and it offered less relief to high-income customers that took on more debt. The similarities end there, as Wells Fargo still offered half the percentage of relief that Bank of America did.
+
+####Overview of Home Price to Income vs Percent Relief Graphs
+
+Overall, it was interesting to note the different tendencies of banks to offer relief to consumers who take on different levels of debt relative to their incomes.
+
+Citi was the only bank that offered more relief as customers lived in areas of increasing home price to income ratios.
+
+Chase went the opposite way; they offered le
+
 
 ###Geographical Overview
 ![](./images/heatmap.png)
@@ -149,7 +168,9 @@ The initial cluster is hard to inspect but if we look at the zoomed in cluster w
 
 ![](./images/wage_vs_price.jpg)
 
-This Here we can see that the Bank of America has the largest percentage of untimely complaints.
+This graph compares the number of complaints and untimely complaints though Citi Bank is fairly close. Here we can see that the Bank of America has the largest percentage of untimely complaints and largest number of complaints.
 
 
 ![](./images/zoom_in_km.png)
+
+Here we see the number of untimely complaints that received relief (either monetary or non-monetary relief). Here we see that when untimely Bank of America provides even more relief than it usually does. climbing from around 18% to 24%. Other banks and mortgage companies also increase by small margins. Since Bank of America has the largest number of untimely complaints it provides more reliefs to those and thus this contributes to the larger percent of relief provided by them. 
