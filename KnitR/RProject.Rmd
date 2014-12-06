@@ -93,7 +93,13 @@ Overall, it was interesting to note the different tendencies of banks to offer r
 
 Citi was the only bank that offered more relief as customers lived in areas of increasing home price to income ratios.
 
-Chase went the opposite way; they offered le
+Chase went the opposite way; they offered less relief as customers lived in areas of increasing home price to income ratios.
+
+Wells Fargo and Bank of America had a tendency to offer more relief to low-income customers that had increasing home price to income ratios. They also offered less relief to high-income customers that had increasing home price to income ratios. This goes against the one of our hypotheses that banks would offer more relief to high-income customers in order to retain them.
+
+Overall, however, BofA and Wells Fargo did not discriminate between debt when offering relief as can be seen by their aggregated income graphs (left side graphs). 
+
+The fact that Bank of America did not discriminate between differing levels of debt combined with the fact that they did not discriminate amongst different mortgage issues (in particular, the “Loan modification, collection, and foreclosure” issues from the previous section) offers a numerical explanation as to why their customers were likely to receive relief. All the other banks either did not offer relief to “Loan modification, collection, and foreclosure” or they did not offer relief to certain customers based on their debt levels. Bank of America was uniform across both of these parameters. Further exploration of why this holds true is needed.
 
 
 ###Geographical Overview
@@ -171,6 +177,6 @@ The initial cluster is hard to inspect but if we look at the zoomed in cluster w
 This graph compares the number of complaints and untimely complaints though Citi Bank is fairly close. Here we can see that the Bank of America has the largest percentage of untimely complaints and largest number of complaints.
 
 
-![](./images/zoom_in_km.png)
+![](./images/percent_untimely.jpg)
 
 Here we see the number of untimely complaints that received relief (either monetary or non-monetary relief). Here we see that when untimely Bank of America provides even more relief than it usually does. climbing from around 18% to 24%. Other banks and mortgage companies also increase by small margins. Since Bank of America has the largest number of untimely complaints it provides more reliefs to those and thus this contributes to the larger percent of relief provided by them. 
